@@ -1,0 +1,21 @@
+\ProvidesPackage{customliststyles}
+
+%-------------------------------------------------------------------------------
+%change layout of some items
+%-------------------------------------------------------------------------------
+
+%bolletje wordt een streepje in opsommingslijsten
+\def\labelitemi{--}
+
+%teken opsommingslijst 2de niveau wordt wit bolletje
+\renewcommand{\labelitemii}{$\circ$}
+
+%\fra wordt omgezet in een pijl naar rechts
+\newcommand{\fra}{\noindent \ensuremath\Rightarrow}
+
+%-------------------------------------------------------------------------------
+% zorgt dat lijsten links aan de kant worden uitgelijnd
+%-------------------------------------------------------------------------------
+
+\setlist[itemize,1]{leftmargin=*,topsep=0pt}
+\setlist[enumerate,1]{leftmargin=*,topsep=0pt}

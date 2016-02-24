@@ -1,0 +1,548 @@
+\ProvidesPackage{projectstyle}
+
+%----------------------------------------------------------------------------------------
+%	REQUIRED PACKAGES
+%----------------------------------------------------------------------------------------
+
+%\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[a4paper, total={7in, 9.5in}]{geometry}
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{algorithm}
+%the algorithmic package for providing source code
+\usepackage{algorithmic}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+% For including math equations, theorems, symbols, etc
+%makes available the commands \proof, \qedsymbol and \theoremstyle
+\usepackage{amsthm}
+\usepackage{blindtext}
+
+%When using this syntax the last language in the option list will be active (i.e. Russian), and you can use the command \selectlanguage{english} at any point to change the active language.
+%hoofdtaal laatst zetten
+\usepackage[english,dutch]{babel}
+\usepackage{color}
+%\usepackage{comment} % enables the use of multi-line comments (\ifx \fi)
+\usepackage{enumitem} % Required for manipulating the whitespace between and within lists
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage{eso-pic} % Required for specifying an image background in the title page
+%maak uw inhoudsopgave wat mooier
+\usepackage{fancyhdr}
+\usepackage[Sonny]{fncychap}
+\usepackage{float}
+%and leads to the usage more wider page width.
+%\usepackage{fullpage} % changes the margin
+\usepackage[acronym, toc]{glossaries}%maak definitielijst
+\usepackage{graphicx} %package to use images in the document
+\usepackage{lastpage} %package voor paginanummering
+\usepackage{microtype} %improves the spacing between words and letters
+\usepackage{multicol} %voor multicolumns te gebruiken
+\usepackage{palatino} % Use the Palatino font by default
+\usepackage{parskip}
+\usepackage{pgf} %Allows pictures to be defined and drawn in LaTeX.
+\usepackage{pgfplots}
+\usepackage{sectsty}
+\usepackage[lofdepth,lotdepth]{subfig} % Required for creating figures with multiple parts (subfigures)
+\usepackage{textcomp}
+\usepackage{tikz} % Required for drawing custom shapes
+\usepackage{titlesec}
+\usepackage[colorinlistoftodos]{todonotes} %voor todonotes te plaatsen
+\usepackage{upgreek}
+\usepackage{varioref} % More descriptive referencing
+\usepackage{verbatim}
+
+\graphicspath{{figures/}} % Set the default folder for images
+
+%\usepackage[colorlinks]{hyperref} % by simply importing the hyperref package all cross-referenced elements become hyperlinked.
+
+%colorlinks maakt de links in een color zichtbaar
+
+%-------------------------------------------
+%my own metadata
+%--------------------------------------------
+
+% Title of thesis (used on cover and in abstract).
+\newcommand{\thetitle}{Objectgerichte systeemanalyse alle info}
+
+\newcommand{\theyearnow}{\year }
+
+\newcommand{\dayoftoday}{\day}
+
+\newcommand{\monthnow}{\month}
+
+\newcommand{\thedate}{\today}
+
+\newcommand{\theauthor}{Filip Vanden Eynde}
+
+\newcommand{\studentennummer}{r0363898}
+
+\newcommand{\coursecode}{Objectgerichte systeemanalyse}
+
+\newcommand{\info}{Samenvatting en examenwiki}
+
+\newcommand{\naamschool}{UCLL}
+
+
+\newcommand{\MONTH}{%
+  \ifcase\the\month
+  \or January% 1
+  \or February% 2
+  \or March% 3
+  \or April% 4
+  \or May% 5
+  \or June% 6
+  \or July% 7
+  \or August% 8
+  \or September% 9
+  \or October% 10
+  \or November% 11
+  \or December% 12
+  \fi}
+\makeatletter
+\newcommand{\YEAR}{\the\year}
+\makeatother
+
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	MAIN TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\usepackage{titletoc} % Required for manipulating the table of contents
+
+
+
+
+% *********** To change the name of Table of Contents / LOF and LOT ************
+
+\addto\captionsdutch{% Replace "english" with the language you use
+ \renewcommand{\contentsname}%
+   {Inhoudsopgave}%
+}
+
+\addto\captionsdutch{% Replace "english" with the language you use
+ \renewcommand{\listalgorithmname}%
+   {Lijst van Algoritmen}%
+}
+
+
+
+
+
+%with babel package
+%\addto\captionsenglish{% Replace "english" with the language you use
+ % \renewcommand{\contentsname}%
+  %  {Table of Contents}%
+%}
+
+
+
+%without babel package
+\renewcommand{\contentsname}{My Table of Contents}
+\renewcommand{\listfigurename}{My List of Figures}
+\renewcommand{\listtablename}{My List of Tables}
+
+
+
+
+
+% ********************************* Appendix ***********************************
+
+% The default value of both \appendixtocname and \appendixpagename is `Appendices'. These names can all be changed via:
+
+%\renewcommand{\appendixtocname}{List of appendices}
+%\renewcommand{\appendixname}{Appndx}
+
+%-------------------------------------------------------------------------------
+%my own metadata
+%-------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------------------------------------------------
+% metadata for pdf features
+%-------------------------------------------------------------------------------------------------------------------------
+
+
+\usepackage[hidelinks,
+            % backref=true,
+            % pagebackref=true,
+            % hyperindex=true,
+            colorlinks=false, %links krijgen kleuren of niet
+            % breaklinks=true,
+            % bookmarks=true,
+            % bookmarksnumbered,
+            % bookmarksopen=false,
+            % urlcolor=webbrown,
+            % linkcolor=red, %bepaalt de kleur van de links
+            % citecolor=webgreen, % Link colors
+            pdftex,
+            pdfauthor={Filip Vanden Eynde}, % PDF Author
+            pdftitle={Netwerken 2 samenvatting, leren voor het examen},% PDF title
+            pdfsubject={Netwerken 2}, % PDF Subject
+            pdfkeywords={Netwerken, samenvatting, examen,ucll}, % PDF Keywords
+            pdfproducer={Filip Vanden Eynde}, % PDF producer
+            pdfcreator={pdflatex, or other tool} % PDF Creator
+            ]{hyperref}
+
+%\usepackage[hidelinks]{hyperref} % by simply importing the hyperref package all cross-referenced elements become hyperlinked.
+
+%-------------------------------------------------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{MyColor1}{rgb}{0.2,0.4,0.6} %mix personal color
+\newcommand{\textb}{\color{Black} \usefont{OT1}{lmss}{m}{n}}
+\newcommand{\blue}{\color{MyColor1} \usefont{OT1}{lmss}{m}{n}}
+\newcommand{\blueb}{\color{MyColor1} \usefont{OT1}{lmss}{b}{n}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%set section/subsections HEADINGS font and color
+%\sectionfont{\color{MyColor1}}  % sets colour of sections
+%\subsectionfont{\color{MyColor1}}  % sets colour of sections
+
+%set section enumerator to arabic number (see footnotes markings alternatives)
+%\renewcommand\thesection{\arabic{section}.} %define sections numbering
+%\renewcommand\thesubsection{\thesection\arabic{subsection}} %subsec.num.
+
+%define new section style
+%\newcommand{\mysection}{
+%\titleformat{\section} [runin] {\usefont{OT1}{lmss}{b}{n}\color{MyColor1}}
+%{\thesection} {3pt} {} }
+
+
+
+%-------------------------------------------------------------------------------------------------------------------------
+% creëer tekst tussen lijsten
+%-------------------------------------------------------------------------------------------------------------------------
+
+\newcounter{saveenumerate}
+\makeatletter
+\newcommand{\enumeratext}[1]{%
+\setcounter{saveenumerate}{\value{enum\romannumeral\the\@enumdepth}}
+\end{enumerate}
+#1
+\begin{enumerate}
+\setcounter{enum\romannumeral\the\@enumdepth}{\value{saveenumerate}}%
+}
+\makeatother
+
+%-------------------------------------------------------------------------------------------------------------------------
+% pas plaats voor en na headings aan
+%-------------------------------------------------------------------------------------------------------------------------
+
+
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+%-------------------------------------------------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------------------------------------------------
+% maak een extra subsection aan
+%-------------------------------------------------------------------------------------------------------------------------
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+  %{\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+
+%\titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\subsubsubsection}{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------
+% hiermee kies je hoeveel niveaus er genummerd worden en hoeveel niveaus in de inhoudsopgave getoond worden
+%-------------------------------------------------------------------------------
+
+\setcounter{tocdepth}{4} % The depth to which the document sections are printed to the table of contents
+\setcounter{secnumdepth}{4}
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+
+
+%-------------------------------------------------------------------------------
+%zorgt ervoor dat elke sectie en subsectie automatisch op een nieuwe pagina begint
+%-------------------------------------------------------------------------------
+
+
+
+%\newcommand{\sectionbreak}{\clearpage}
+%\newcommand{\subsectionbreak}{\clearpage}
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+% zorgt dat lijsten links aan de kant worden uitgelijnd
+%-------------------------------------------------------------------------------
+
+\setlist[itemize,1]{leftmargin=*,topsep=0pt}
+\setlist[enumerate,1]{leftmargin=*,topsep=0pt}
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+% maak glossaries aan
+%-------------------------------------------------------------------------------
+
+\import{./}{glossary.tex}
+%\import{glossary}
+\makeglossaries
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+
+\pgfplotsset{width=10cm,compat=1.9}
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+%change layout of some items
+%-------------------------------------------------------------------------------
+
+%bolletje wordt een streepje in opsommingslijsten
+\def\labelitemi{--}
+%teken opsommingslijst 2de niveau wordt wit bolletje
+\renewcommand{\labelitemii}{$\circ$}
+%\fra wordt omgezet in een pijl naar rechts
+\newcommand{\fra}{\noindent \ensuremath\Rightarrow}
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+
+
+
+%-------------------------------------------------------------------------------
+% HEADER & FOOTER
+%-------------------------------------------------------------------------------
+
+
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+%The command \fancyhf{} clears the header and footer, otherwise the elements of the default "plain" page style will appear.
+\fancyhf{}
+%Prints the text included inside the braces on the right side of the header.
+%\fancyhead[RE]{\textbf{\textit{\nouppercase{\leftmark}}}}
+\fancyhead[RH]{Filip Vanden Eynde} %plaatst rechtsboven in de header
+
+\fancyhead[LH]{\textbf{\textit{\nouppercase{\rightmark}}}} %plaats linksboven in de header
+%\fancyhead[LO]{\textbf{\textit{\nouppercase{\rightmark}}}}
+\fancyfoot[RF]{Pagina \thepage \hspace{1pt} van \pageref{LastPage}} %plaats rechtsonder in de footer
+%teken lijn boven footer
+\renewcommand{\footrulewidth}{1pt}
+
+\fancypagestyle{plain}{ %
+\fancyhf{} % remove everything
+\renewcommand{\headrulewidth}{0pt}} % remove lines as well
+%\renewcommand{\footrulewidth}{1pt}}
+
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+
+%Ruler
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+%Lemma definition and lemma counter
+\newtheorem{lemma}{Lemma}[section]
+
+%Definition counter
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+%Corolary counter
+\newtheorem{corolary}{Corolary}[section]
+
+%Commands for naturals, integers, topology, hull, Ball, Disc, Dimension, boundary and a few more
+\newcommand{\E}{{\mathcal{E}}}
+\newcommand{\F}{{\mathcal{F}}}
+\newcommand{\T}{{\mathcal{T}}}
+\newcommand{\Bs}{{\mathcal{B}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\Nt}{{\mathbb{N}}}
+\newcommand{\B}{{\mathbf{B}}}
+\renewcommand{\S}{{\mathbf{S}}}
+\newcommand{\K}{{\mathfrak{C}}}
+\newcommand{\N}{{\mathfrak{N}}}
+\newcommand{\I}{{\mathbf{I}}}
+\newcommand{\dime}{{\rm dim}\,}
+\newcommand{\est}{{\rm Est}\,}
+\newcommand{\inte}{{\rm int}\,}
+\newcommand{\conv}{{\rm conv}\,}
+\renewcommand{\max}{{\rm sup\,}}
+\newcommand{\diam}{{\rm di\acute{a}m\,}}
+\newcommand{\leyenda}[1]{\caption{{\small \textsf{#1}}}}
+\renewcommand{\inf}{{\rm \acute{i}nf}\,}
+
+%Example cenvironment
+\theoremstyle{remark}
+\newtheorem{examle}{Example}
+
+%Example counter
+\newcommand{\reiniciar}{\setcounter{example}{0}}
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+
+%nieuw commando om genummerde lijst te starten
+\newcommand{\be}{\begin{enumerate}}
+%nieuw commando om genummerde lijst te eindigen
+\newcommand{\ee}{\end{enumerate}}
+
+%nieuw commando om opsommingslijst te starten
+\newcommand{\bi}{\begin{itemize}}
+%nieuw commando om opsommingslijst te eindigen
+\newcommand{\ei}{\end{itemize}}
+%nieuw commando om item aan lijst toe te voegen
+\newcommand{\itf}{\item }
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+\setlength{\parskip}{1em}
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+
+\usepackage[framemethod=TikZ]{mdframed}
+
+\newcounter{theo}[section]\setcounter{theo}{0}
+\renewcommand{\thetheo}{\arabic{section}.\arabic{theo}}
+\newenvironment{theo}[2][]{%
+\refstepcounter{theo}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=blue!20]
+{\strut Theorem~\thetheo};}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=blue!20]
+{\strut Theorem~\thetheo:~#1};}}%
+}%
+\mdfsetup{innertopmargin=10pt,linecolor=blue!20,%
+linewidth=2pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+\label{#2}}{\end{mdframed}}
+
+
+%http://texblog.org/2015/09/30/fancy-boxes-for-theorem-lemma-and-proof-with-mdframed/
+
+\usepackage{listings}
+\lstset{language=XML}
+\usepackage{hyperref}
+
+%voor source code te tonen
+\usepackage{minted}
+
+% ************************* Algorithms and Pseudocode **************************
+
+%\usepackage{algpseudocode}
+
+% ******************************************************************************
+% ************************* User Defined Commands ******************************
+% ******************************************************************************
+
+% ******************************** Todo Notes **********************************
+%% Uncomment the following lines to have todonotes.
+
+%\ifsetDraft
+%	\usepackage[colorinlistoftodos]{todonotes}
+%	\newcommand{\mynote}[1]{\todo[author=kks32,size=\small,inline,color=green!40]{#1}}
+%\else
+%	\newcommand{\mynote}[1]{}
+%	\newcommand{\listoftodos}{}
+%\fi
+
+% Example todo: \mynote{Hey! I have a note}
+
+
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------

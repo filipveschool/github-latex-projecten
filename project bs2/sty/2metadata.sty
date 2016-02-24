@@ -1,0 +1,80 @@
+\ProvidesPackage{metadatastyle}
+
+%-------------------------------------------
+%my own metadata
+%--------------------------------------------
+
+% Title of thesis (used on cover and in abstract).
+\newcommand{\thetitle}{OSA alle info}
+
+\newcommand{\thesubject}{OSA}
+
+\newcommand{\thekeywords}{OSA,ucll}
+
+\newcommand{\thepdfproducer}{Filip Vanden Eynde}
+
+\newcommand{\thepdfcreator}{pdflatex, or other tool}
+
+
+\newcommand{\theyearnow}{\year }
+
+\newcommand{\dayoftoday}{\day}
+
+\newcommand{\monthnow}{\month}
+
+\newcommand{\thedate}{\today}
+
+\newcommand{\theauthor}{Filip Vanden Eynde}
+
+\newcommand{\studentennummer}{r0363898}
+
+\newcommand{\coursecode}{OSA}
+
+\newcommand{\info}{Samenvatting en examenwiki}
+
+\newcommand{\naamschool}{UCLL}
+
+
+\newcommand{\MONTH}{%
+  \ifcase\the\month
+  \or January% 1
+  \or February% 2
+  \or March% 3
+  \or April% 4
+  \or May% 5
+  \or June% 6
+  \or July% 7
+  \or August% 8
+  \or September% 9
+  \or October% 10
+  \or November% 11
+  \or December% 12
+  \fi}
+\makeatletter
+\newcommand{\YEAR}{\the\year}
+\makeatother
+
+%-------------------------------------------------------------------------------------------------------------------------
+% metadata for pdf features
+%-------------------------------------------------------------------------------------------------------------------------
+
+
+%\usepackage[hidelinks,
+%            colorlinks=false, %links krijgen kleuren of niet
+%            % breaklinks=true,
+%            % bookmarks=true,
+%            % bookmarksnumbered,
+%            % bookmarksopen=false,
+%            % urlcolor=webbrown,
+%            % linkcolor=red, %bepaalt de kleur van de links
+%            % citecolor=webgreen, % Link colors
+%            pdftex,
+%            pdfauthor={\theauthor}, % PDF Author
+%            pdftitle={\thetitle},% PDF title
+%            pdfsubject={\thesubject}, % PDF Subject
+%            pdfkeywords={\thekeywords}, % PDF Keywords
+%            pdfproducer={\thepdfproducer}, % PDF producer
+%            pdfcreator={\thepdfcreator} % PDF Creator
+%            ]{hyperref} %It gives LaTeX the possibility to manage links within the document or to any URL when you compile in PDF
+
+%https://en.wikibooks.org/wiki/LaTeX/Hyperlinks

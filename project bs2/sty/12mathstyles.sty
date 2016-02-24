@@ -1,0 +1,49 @@
+\ProvidesPackage{mathstylesmyown}
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+
+%Ruler
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+%Lemma definition and lemma counter
+\newtheorem{lemma}{Lemma}[section]
+
+%Definition counter
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+%Corolary counter
+\newtheorem{corolary}{Corolary}[section]
+
+%Commands for naturals, integers, topology, hull, Ball, Disc, Dimension, boundary and a few more
+\newcommand{\E}{{\mathcal{E}}}
+\newcommand{\F}{{\mathcal{F}}}
+\newcommand{\T}{{\mathcal{T}}}
+\newcommand{\Bs}{{\mathcal{B}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\Nt}{{\mathbb{N}}}
+\newcommand{\B}{{\mathbf{B}}}
+\renewcommand{\S}{{\mathbf{S}}}
+\newcommand{\K}{{\mathfrak{C}}}
+\newcommand{\N}{{\mathfrak{N}}}
+\newcommand{\I}{{\mathbf{I}}}
+\newcommand{\dime}{{\rm dim}\,}
+\newcommand{\est}{{\rm Est}\,}
+\newcommand{\inte}{{\rm int}\,}
+\newcommand{\conv}{{\rm conv}\,}
+\renewcommand{\max}{{\rm sup\,}}
+\newcommand{\diam}{{\rm di\acute{a}m\,}}
+\newcommand{\leyenda}[1]{\caption{{\small \textsf{#1}}}}
+\renewcommand{\inf}{{\rm \acute{i}nf}\,}
+
+%Example cenvironment
+\theoremstyle{remark}
+\newtheorem{examle}{Example}
+
+%Example counter
+\newcommand{\reiniciar}{\setcounter{example}{0}}

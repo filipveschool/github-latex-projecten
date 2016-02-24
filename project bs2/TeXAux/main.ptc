@@ -1,0 +1,40 @@
+\select@language {dutch}
+\contentsline {part}{I\hspace {1em}Theorie}{2}{part.1}
+\ttl@starttoc {parts@1}
+\contentsline {chapter}{\numberline {1}Threads}{4}{chapter.1}
+\ttl@starttoc {chapters@1}
+\contentsline {section}{\numberline {1.1}Overview}{5}{section.1.1}
+\contentsline {section}{\numberline {1.2}Multicore Programming}{6}{section.1.2}
+\contentsline {section}{\numberline {1.3}Multithreading Models}{6}{section.1.3}
+\contentsline {section}{\numberline {1.4}Thread Libraries}{6}{section.1.4}
+\contentsline {section}{\numberline {1.5}Implicit Threading}{6}{section.1.5}
+\contentsline {section}{\numberline {1.6}Threading Issues}{6}{section.1.6}
+\contentsline {section}{\numberline {1.7}Operating System Examples}{6}{section.1.7}
+\contentsline {chapter}{\numberline {2}Process Synchronization}{7}{chapter.2}
+\ttl@stoptoc {chapters@1}
+\ttl@starttoc {chapters@2}
+\contentsline {section}{\numberline {2.1}Background}{8}{section.2.1}
+\contentsline {section}{\numberline {2.2}The Critical-Section Problem}{8}{section.2.2}
+\contentsline {section}{\numberline {2.3}Peterson\IeC {\textquoteright }s Solution}{8}{section.2.3}
+\contentsline {section}{\numberline {2.4}Synchronization Hardware}{8}{section.2.4}
+\contentsline {section}{\numberline {2.5}Mutex Locks}{8}{section.2.5}
+\contentsline {section}{\numberline {2.6}Semaphores}{8}{section.2.6}
+\contentsline {section}{\numberline {2.7}Classic Problems of Synchronization}{8}{section.2.7}
+\contentsline {section}{\numberline {2.8}Monitors}{8}{section.2.8}
+\contentsline {section}{\numberline {2.9}Synchronization Examples}{8}{section.2.9}
+\contentsline {section}{\numberline {2.10}Alternative Approaches}{8}{section.2.10}
+\contentsline {part}{II\hspace {1em}Labo's}{9}{part.2}
+\ttl@stoptoc {parts@1}
+\ttl@starttoc {parts@2}
+\contentsline {chapter}{\numberline {3}Labos}{11}{chapter.3}
+\ttl@stoptoc {chapters@2}
+\ttl@starttoc {chapters@3}
+\contentsline {section}{\numberline {3.1}labo 1}{12}{section.3.1}
+\contentsline {part}{III\hspace {1em}Examenwiki}{13}{part.3}
+\ttl@stoptoc {parts@2}
+\ttl@starttoc {parts@3}
+\contentsline {chapter}{\numberline {4}examenwiki vragen}{15}{chapter.4}
+\contentsline {part}{IV\hspace {1em}Glossary}{16}{part.4}
+\ttl@stoptoc {parts@3}
+\ttl@starttoc {parts@4}
+\contentsfinish 

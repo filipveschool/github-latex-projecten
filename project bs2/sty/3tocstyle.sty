@@ -1,0 +1,46 @@
+\ProvidesPackage{tocstyle}
+
+%----------------------------------------------------------------------------------------
+%	MAIN TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\usepackage{titletoc} % Required for manipulating the table of contents
+
+
+
+%-------------------------------------------------------------------------------
+% hoeveel niveaus diep in de inhoudsopgave getoond worden
+%-------------------------------------------------------------------------------
+
+\setcounter{tocdepth}{4} % The depth to which the document sections are printed to the table of contents
+
+
+
+% *********** To change the name of Table of Contents / LOF and LOT ************
+
+\addto\captionsdutch{% Replace "english" with the language you use
+ \renewcommand{\contentsname}%
+   {Inhoudsopgave}%
+}
+
+\addto\captionsdutch{% Replace "english" with the language you use
+ \renewcommand{\listalgorithmname}%
+   {Lijst van Algoritmen}%
+}
+
+
+
+
+
+%with babel package
+%\addto\captionsenglish{% Replace "english" with the language you use
+ % \renewcommand{\contentsname}%
+  %  {Table of Contents}%
+%}
+
+
+
+%without babel package
+\renewcommand{\contentsname}{My Table of Contents}
+\renewcommand{\listfigurename}{My List of Figures}
+\renewcommand{\listtablename}{My List of Tables}

@@ -1,4 +1,5 @@
-\documentclass[a4paper,11pt]{article}
+%\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,11pt]{report}
 \usepackage{import}
 %\usepackage{projectstyle}
 
@@ -6,96 +7,263 @@
 \usepackage{sty/1loadrequiredpackagesatveryfirst}
 \usepackage{sty/2metadata}
 \usepackage{sty/3tocstyle}
-\usepackage{sty/4appendixstyle}
-\usepackage{sty/5colorstyles}
+%\usepackage{sty/4appendixstyle}
+%\usepackage{sty/5colorstyles}
 \usepackage{sty/6sectionsstyle}
 \usepackage{sty/7newcommandsfilip}
 \usepackage{sty/8glossariesstyle}
 \usepackage{sty/9imagesstyle}
 \usepackage{sty/10liststyles}
 \usepackage{sty/11headerfooterstyle}
+%\newcommand\TestAppExists[3]{#2}
 \usepackage{sty/12mathstyles}
 \usepackage{sty/13customstylesfromothersites}
 \usepackage{sty/14stylesforalgoritmsandsourcecode}
-\usepackage{sty/15stylefortodonotes}
+\usepackage{lipsum}
+%\usepackage{sty/15stylefortodonotes}
 %\usepackage{sty/}
 %\usepackage{sty/}
 %\usepackage{sty/}
-%\usepackage{sty/}
-%\usepackage{sty/}
+\usepackage{mdframed}
+\usepackage{titletoc} % Required for manipulating the table of contents
+\usepackage[hidelinks,
+            colorlinks=false, %links krijgen kleuren of niet
+            % breaklinks=true,
+            % bookmarks=true,
+            % bookmarksnumbered,
+            % bookmarksopen=false,
+            % urlcolor=webbrown,
+            % linkcolor=red, %bepaalt de kleur van de links
+            % citecolor=webgreen, % Link colors
+            pdftex,
+            pdfauthor={\theauthor}, % PDF Author
+            pdftitle={\thetitle},% PDF title
+            pdfsubject={\thesubject}, % PDF Subject
+            pdfkeywords={\thekeywords}, % PDF Keywords
+            pdfproducer={\thepdfproducer}, % PDF producer
+            pdfcreator={\thepdfcreator} % PDF Creator
+            ]{hyperref} %It gives LaTeX the possibility to manage links within the document or to any URL when you compile in PDF
+
 \newcommand{\bfsp}{\renewcommand\labelitemi{$\bullet$}}
 
-\usepackage{makeidx}
 
+%\usepackage{minitoc} %Produce a table of contents for each chapter, part or section
+%http://tex.stackexchange.com/questions/3001/list-sections-of-chapter-at-beginning-of-that-chapter
+%http://www.ctan.org/pkg/minitoc
+%
+%
+%\renewcommand{\mtctitle}{Inhoudsopgave}
+%dit zet de "contents" string om in de string
+%"inhoudsopgave" van het pakket minitoc
+%\nomtcrule         % removes rules = horizontal lines
+
+
+%\usepackage{makeidx}
+
+%\usepackage{pdfpages}
 
 %It prints out all index entries in the left margin of the text. This is quite useful for proofreading a document and verifying the index. For more information, see the Indexing section.
 
 %https://en.wikibooks.org/wiki/LaTeX/Indexing
 
-\usepackage{showidx} %It prints out all index entries in the left margin of the text.
+%\usepackage{showidx} %It prints out all index entries in the left margin of the text.
 
-\makeindex
+%\makeindex
 
 %we have to define a bibliography style in the preamble
-\bibliographystyle{plain}
+%\bibliographystyle{plain}
 
-\usepackage{booktabs}
+%\usepackage{booktabs}
 
-\usepackage{exsheets}
+%\usepackage{exsheets}
 
-\DeclareTranslation{Dutch}{exsheets-exercise-name}{Vraag}
-\DeclareTranslation{Dutch}{exsheets-question-name}{opgave}
-\DeclareTranslation{Dutch}{exsheets-solution-name}{Oplossing}
+%\DeclareTranslation{Dutch}{exsheets-exercise-name}{Vraag}
+%\DeclareTranslation{Dutch}{exsheets-question-name}{opgave}
+%\DeclareTranslation{Dutch}{exsheets-solution-name}{Oplossing}
 
-\usepackage{caption}
-\usepackage{wrapfig}
+%\usepackage{caption}
+%\usepackage{wrapfig}
+%\titlespacing{\chapter}{0pt}{2ex}{1ex}
 \titlespacing{\section}{0pt}{2ex}{1ex}
 \titlespacing{\subsection}{0pt}{1ex}{0ex}
 \titlespacing{\subsubsection}{0pt}{0.5ex}{0ex}
-\usepackage{subcaption}
-\begin{document}
+%\usepackage{subcaption}
 
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+
+\titleformat{\chapter}[hang]
+{\filright\normalfont\Huge\bfseries}
+%{\chaptertitlename~\thechapter} {0.5em} {}
+{\chaptertitlename~\thechapter\hsp\textcolor{gray75}{|}\hsp} {0pt} {}
+
+%http://tex.stackexchange.com/questions/101502/chapter-number-and-title-in-one-row
+%http://texblog.org/2012/07/03/fancy-latex-chapter-styles/
+%http://ftp.isu.edu.tw/pub/Unix/CTAN/macros/latex/contrib/minitoc/minitoc.pdf
+%
+
+%\titleformat{\part}[display]
+%{\vspace*{\fill}
+%{\normalfont\huge\filcenter\bfseries}
+%{\partname\ \thepart}
+%{\partname} ==> print op pdf: "Deel"
+%{\thepart} ==> print op pdf: " I en nieuwe line: Theorie
+%{20pt}
+%{\Huge}
+%\titlespacing*{\part}{0pt}{0pt}{40pt}
+
+%dit is voor de chapters
+\newcommand\PartialTocChapter{%\vspace*{2pc}\hrule\vspace*{1pc}%
+\startcontents[chapters]\vbox{\bf\Large Inhoudsopgave }
+\printcontents[chapters]{}{1}{\setcounter{tocdepth}{1}}
+\newpage
+}%\vspace*{1pc}\hrule}
+
+%dit is voor de parts
+\newcommand\PartialTocPart{%\vspace*{2pc}\hrule\vspace*{1pc}%
+\startcontents[parts]\vbox{\bf\Large Deel \thepart ~ inhoudsopgave}
+\printcontents[parts]{}{0}{\setcounter{tocdepth}{1}}}%\vspace*{1pc}\hrule}
+
+
+
+\begin{document}
 
 %\glsaddall
 %\import{./}{title.tex}
 
 %\clearpage
 
+%dit is voor de titelpagina
 \import{./}{title2.tex}
 
-\clearpage
+%\clearpage
+\newpage
 
 \thispagestyle{empty}
-
+%\dominitoc %initialization
+%\dominitoc[n]% zorgt ervoor dat de titel "inhoudsopgave" verborgen wordt"
 \tableofcontents
 
-\clearpage
+% Add “Page” above page numbers
+%\addtocontents{toc}{~\hfill\textbf{Page}\par}
+
+%\clearpage
+\newpage
+
+\part{Theorie}
+
+%dees werkt zeker wel
+%\startcontents[level-0]
+%\printcontents[level-0]{}{0}{\setcounter{tocdepth}{2}}
+%
+%
+\PartialTocPart
+%\import{sections/lessen/hoofdstuk3/}{deel1.tex}
+
+%\setcounter{chapter}{3}
+\chapter{Threads}
+%\minitoc% Creating an actual minitoc
+
+\PartialTocChapter
+
+%\startcontents[level-1]
+%\printcontents[level-1]{}{1}{\setcounter{tocdepth}{1}}
+
+%\startcontents[chapters]
+
+\section{Overview}
+\lipsum
+%\import{sections/lessen/hoofdstuk4/}{deel1.tex}
+\section{Multicore Programming}
+%\import{sections/lessen/hoofdstuk4/}{deel2.tex}
+\section{Multithreading Models}
+%\import{sections/lessen/hoofdstuk4/}{deel3.tex}
+\section{Thread Libraries}
+%\import{sections/lessen/hoofdstuk4/}{deel4.tex}
+\section{Implicit Threading}
+%\import{sections/lessen/hoofdstuk4/}{deel5.tex}
+\section{Threading Issues}
+%\import{sections/lessen/hoofdstuk4/}{deel6.tex}
+\section{Operating System Examples}
+%\import{sections/lessen/hoofdstuk4/}{deel7.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\stopcontents[level-1]
+
+\chapter{Process Synchronization}
+
+%\minitoc% Creating an actual minitoc
+%http://tex.stackexchange.com/questions/3001/list-sections-of-chapter-at-beginning-of-that-chapter
+%
+
+\PartialTocChapter
+
+\section{Background}
+\import{sections/lessen/hoofdstuk5/}{deel1.tex}
+
+\section{The Critical-Section Problem}
+\import{sections/lessen/hoofdstuk5/}{deel2.tex}
+\section{Peterson’s Solution}
+\import{sections/lessen/hoofdstuk5/}{deel3.tex}
+\section{Synchronization Hardware}
+%\import{sections/lessen/hoofdstuk5/}{deel4.tex}
+\section{Mutex Locks}
+%\import{sections/lessen/hoofdstuk5/}{deel5.tex}
+\section{Semaphores}
+%\import{sections/lessen/hoofdstuk5/}{deel6.tex}
+\section{Classic Problems of Synchronization}
+%\import{sections/lessen/hoofdstuk5/}{deel7.tex}
+\section{Monitors}
+%\import{sections/lessen/hoofdstuk5/}{deel8.tex}
+\section{Synchronization Examples}
+%\import{sections/lessen/hoofdstuk5/}{deel9.tex}
+\section{Alternative Approaches}
+%\import{sections/lessen/hoofdstuk5/}{deel10.tex}
+
+%dees werkt zeker
+%\stopcontents[level-0]
+
+\part{Labo's}
+%\startcontents[parts]
+
+\PartialTocPart
+
+\chapter{Labos}
+
+\PartialTocChapter
+
+%\startcontents[chapters]
+%\PartialToc
+\section{labo 1}
+\import{sections/labos/}{labo1.tex}
 
 
+
+
+%\includepdf[pages=-]{pdf/lab_1_linux_processes_threads_systemcalls}
 
 %hoofdstuk 4
 %\setcounter{section}{6}
 %\newpage
 %\section{Multimedia netwerken}
 
-\import{sections/lessen/}{1informatiesystemen.tex}
+%\import{sections/lessen/}{1informatiesystemen.tex}
 
-\import{sections/lessen/}{2uml.tex}
+%\stopcontents[chapters]
+%\printcontents[chapters]{l}{0}
 
-\import{sections/lessen/}{3buziness.tex}
 
-\import{sections/lessen/}{4domainmodel.tex}
 
-\import{sections/lessen/}{5requirementsmodel.tex}
-\import{sections/lessen/}{6dynamischmodelleren.tex}
-\import{sections/lessen/}{7applicatielaag.tex}
-\import{sections/lessen/}{8implementationdiagram.tex}
-\import{sections/lessen/}{8deploymentdiagram.tex}
+\part{Examenwiki}
+%\startcontents[parts]
 
-\section{examenwiki vragen}
-\import{sections/examenwiki/}{barrezeele.tex}
-\import{sections/examenwiki/}{fox.tex}
-\import{sections/examenwiki/}{martens.tex}
+\PartialTocPart
+
+
+\chapter{examenwiki vragen}
+%\startcontents[chapters]
+%\PartialToc
+%\import{sections/examenwiki/}{barrezeele.tex}
 
 
 
@@ -103,6 +271,8 @@
 
 
 \clearpage
+\part{Glossary}
+\PartialTocPart
 
 %\printglossaries
 \printglossary[title=Termen,toctitle=Lijst van termen]
@@ -112,6 +282,6 @@
 
 \clearpage
 %\import{./}{bibliography.tex}
-\printsolutions
+%\printsolutions
 
-\end{document}
+\end{document} 

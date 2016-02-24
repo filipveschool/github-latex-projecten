@@ -1,0 +1,77 @@
+\ProvidesPackage{newcommandsmyown}
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+
+%nieuw commando om genummerde lijst te starten
+\newcommand{\be}{\begin{enumerate}}
+%nieuw commando om genummerde lijst te eindigen
+\newcommand{\ee}{\end{enumerate}}
+
+%nieuw commando om opsommingslijst te starten
+\newcommand{\bi}{\begin{itemize}}
+%nieuw commando om opsommingslijst te eindigen
+\newcommand{\ei}{\end{itemize}}
+%nieuw commando om item aan lijst toe te voegen
+\newcommand{\itf}{\item }
+
+
+%-------------------------------------------------------------------------------
+%creëer tekst tussen lijsten
+%-------------------------------------------------------------------------------
+
+\newcounter{saveenumerate}
+\makeatletter
+\newcommand{\enumeratext}[1]{%
+\setcounter{saveenumerate}{\value{enum\romannumeral\the\@enumdepth}}
+\end{enumerate}
+#1
+\begin{enumerate}
+\setcounter{enum\romannumeral\the\@enumdepth}{\value{saveenumerate}}%
+}
+\makeatother
+
+%-------------------------------------------------------------------------------------------------------------------------
+% maak een extra subsection aan
+%-------------------------------------------------------------------------------------------------------------------------
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+  %{\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+
+%\titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titlespacing*{\subsubsubsection}{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+%-------------------------------------------------------------------------------
+%zorgt ervoor dat elke sectie en subsectie automatisch op een nieuwe pagina begint
+%-------------------------------------------------------------------------------
+
+
+
+%\newcommand{\sectionbreak}{\clearpage}
+%\newcommand{\subsectionbreak}{\clearpage}

@@ -1,0 +1,49 @@
+\ProvidesPackage{headerfooterstyle}
+
+%-------------------------------------------------------------------------------
+% HEADER
+%-------------------------------------------------------------------------------
+
+\setlength{\headheight}{15pt}
+
+\pagestyle{fancy}
+
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+
+%The command \fancyhf{} clears the header and footer, otherwise the elements of the default "plain" page style will appear.
+\fancyhf{}
+
+%Prints the text included inside the braces on the right side of the header.
+%\fancyhead[RE]{\textbf{\textit{\nouppercase{\leftmark}}}}
+\fancyhead[RH]{\textbf{\textit{\nouppercase{\leftmark}}}}
+%\fancyhead[RH]{Filip Vanden Eynde} %plaatst rechtsboven in de header
+
+%\fancyhead[CH]{Filip Vanden Eynde} %plaatst rechtsboven in de header
+
+\fancyhead[LH]{\textbf{\textit{\nouppercase{\rightmark}}}}
+
+%\fancyhead[LH]{\textbf{\textit{\nouppercase{\rightmark}}}} %plaats linksboven in de header
+%\fancyhead[LO]{\textbf{\textit{\nouppercase{\rightmark}}}}
+
+%-------------------------------------------------------------------------------
+%  FOOTER
+%-------------------------------------------------------------------------------
+
+%\fancyfoot[LF]{Copyright Filip Vanden Eynde}
+\fancyfoot[LF]{Filip Vanden Eynde~\copyright~2016}
+%http://sites.ieee.org/cec2015/for-latex-users/
+\fancyfoot[RF]{Pagina \thepage \hspace{1pt} van \pageref{LastPage}} %plaats rechtsonder in de footer
+
+%teken lijn boven footer
+\renewcommand{\footrulewidth}{1pt}
+
+%-------------------------------------------------------------------------------
+%
+%-------------------------------------------------------------------------------
+
+\fancypagestyle{plain}{ %
+\fancyhf{} % remove everything
+\renewcommand{\headrulewidth}{0pt}
+%} % remove lines as well
+%\renewcommand{\footrulewidth}{1pt}}
+\renewcommand{\footrulewidth}{0pt}}

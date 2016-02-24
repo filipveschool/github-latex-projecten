@@ -1,0 +1,40 @@
+\ProvidesPackage{sectionsstyle}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%set section/subsections HEADINGS font and color
+%\sectionfont{\color{MyColor1}}  % sets colour of sections
+%\subsectionfont{\color{MyColor1}}  % sets colour of sections
+
+%set section enumerator to arabic number (see footnotes markings alternatives)
+%\renewcommand\thesection{\arabic{section}.} %define sections numbering
+%\renewcommand\thesubsection{\thesection\arabic{subsection}} %subsec.num.
+
+%define new section style
+%\newcommand{\mysection}{
+%\titleformat{\section} [runin] {\usefont{OT1}{lmss}{b}{n}\color{MyColor1}}
+%{\thesection} {3pt} {} }
+
+%-------------------------------------------------------------------------------------------------------------------------
+% pas plaats voor en na headings aan gebruikmakend van package titlesec
+%-------------------------------------------------------------------------------------------------------------------------
+
+
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+%-------------------------------------------------------------------------------
+% hiermee kies je hoeveel niveaus er genummerd worden en hoeveel niveaus in de inhoudsopgave getoond worden
+%-------------------------------------------------------------------------------
+
+\setcounter{secnumdepth}{4} % aantal niveaus van secties dus nu 1.2.3.4 tekst
+
+%-------------------------------------------------------------------------------
+% dit zorgt voor een witruimte van 1em tussen paragrafen en alineas.
+
+%wordt gebruikt ipv \\ of \newline
+
+%-------------------------------------------------------------------------------
+
+
+\setlength{\parskip}{1em}
